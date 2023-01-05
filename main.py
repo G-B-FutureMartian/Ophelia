@@ -1,16 +1,17 @@
-from random import choice
+from random import choice 
 from time import sleep
 
 
-word = "Huh"
-def inWord():
+#word = "Huh"
+
+def inWord(word):
   if "hi" or "hello" in word:
     #print("Hello")
     sleep(1)
 
 class Ophelia:
   name = "Ophelia"
-  greetings = [
+  firstGreetings = [ # Greetings for when first meeting chatbot
     "Hi.",
     "Hi!",
     "Hi, I'm Ophelia.",
@@ -19,12 +20,13 @@ class Ophelia:
     "Hello, my name is Ophelia."
   ]
 
-  
   # this is where all the Responses will go.
-  Hello = {
-    "Hi."
+  # Response types include:
+  # greetings
+  greetings = [
+    "Hi.",
     "Hello"
-  }
+  ]
   
 class Noah:
   name = "Noah"
@@ -39,9 +41,6 @@ class Noah:
     "Hi."
     ]
 
-class Responses:
-  Ophelia
-
 def test(bot):
   if bot == "Ophelia":
     testBot = Ophelia
@@ -55,22 +54,16 @@ if __name__ == "__main__":
   botChoice = input("Noah or Ophelia? ")
   botTemplate = "{0}: ".format(botChoice)
   if botChoice == "Ophelia":
-    Standard = Ophelia
-  print(botTemplate + choice(Standard.greetings))
-
+    chatBot = Ophelia
 
   if botChoice == "Noah":
-    Standard = Noah
-    print(choice(Standard.greetings))
-
+    chatBot = Noah
+  word = "placeholder"
   while word != 'exit' or 'Exit':
-   print(Standard.Responses.Hello)
-   word = input("You: ")
-   word = word.upper()
-   if word ==  "exit":
-    break
-   else:
-     inWord()
+    print(botTemplate + choice(chatBot.greetings))
+    word = input("You: ")
+    word = word.upper()
+    inWord(word)
   
 if __name__ == "__init__":
   print("Hi")
